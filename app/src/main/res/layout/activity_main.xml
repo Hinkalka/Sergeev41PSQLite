@@ -7,17 +7,24 @@
 
     <EditText
         android:id="@+id/etName"
-        android:hint="Name"
+        android:hint="Сar brand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </EditText>
 
     <EditText
         android:id="@+id/etEmail"
-        android:hint="Email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </EditText>
+        android:layout_height="wrap_content"
+        android:hint="Year of car production"
+        android:minHeight="48dp"></EditText>
+
+    <EditText
+        android:id="@+id/etLicense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="License"
+        android:minHeight="48dp"></EditText>
 
     <LinearLayout
         android:layout_width="match_parent"

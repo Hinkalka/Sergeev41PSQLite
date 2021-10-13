@@ -137,7 +137,7 @@ public void UpdateTable(){
                         realId++;
                     }
                     while (cursorUpdater.moveToNext());
-                    if(cursorUpdater.moveToLast())
+                    if (cursorUpdater.moveToLast() && v.getId()!=realId)
                     {
                         database.delete(DBHelper.TABLE_CONTACTS,DBHelper.KEY_ID+" = ?",new String[]{cursorUpdater.getString(idIndex)});
                     }
@@ -147,3 +147,4 @@ public void UpdateTable(){
         dbHelper.close();
     }
 }}
+
