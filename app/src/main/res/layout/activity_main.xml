@@ -20,7 +20,7 @@
         android:minHeight="48dp"></EditText>
 
     <EditText
-        android:id="@+id/etLicense"
+        android:id="@+id/etLicensee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="License"

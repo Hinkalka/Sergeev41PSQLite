@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button btnAdd, btnRead, btnClear;
-    EditText etName, etEmail;
+    EditText etName, etEmail, etLicensee;
 
     DBHelper dbHelper;
     SQLiteDatabase database;
@@ -98,9 +98,11 @@ public void UpdateTable(){
             case R.id.btnAdd:
                 String name = etName.getText().toString();
                 String email = etEmail.getText().toString();
+                String license = etLicensee.getText().toString();
                 contentValues = new ContentValues();
                 contentValues.put(DBHelper.KEY_NAME, name);
                 contentValues.put(DBHelper.KEY_MAIL, email);
+                contentValues.put(DBHelper.KEY_LICENSEE, license);
 
                 database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
                 UpdateTable();
@@ -125,6 +127,7 @@ public void UpdateTable(){
                     int idIndex = cursorUpdater.getColumnIndex(DBHelper.KEY_ID);
                     int nameIndex = cursorUpdater.getColumnIndex(DBHelper.KEY_NAME);
                     int mailIndex = cursorUpdater.getColumnIndex(DBHelper.KEY_MAIL);
+                    int licenseIndex = cursorUpdater.getColumnIndex(DBHelper.KEY_LICENSEE);
                     int realId=1;
                     do{
                         if(cursorUpdater.getInt(idIndex)>realId)
@@ -132,6 +135,7 @@ public void UpdateTable(){
                             contentValues.put(DBHelper.KEY_ID, realId);
                             contentValues.put(DBHelper.KEY_NAME, cursorUpdater.getString(nameIndex));
                             contentValues.put(DBHelper.KEY_MAIL,cursorUpdater.getString(mailIndex));
+                            contentValues.put(DBHelper.KEY_LICENSEE, cursorUpdater.getString(licenseIndex));
                             database.replace(DBHelper.TABLE_CONTACTS,null,contentValues);
                         }
                         realId++;
